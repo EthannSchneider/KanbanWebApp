@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.apache.derby.jdbc.EmbeddedDriver
+    url: "jdbc:derby:${user.home}/.kanbanWebAppDB;create=true"
+    hikari:
+      auto-commit: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+  flyway:
+    enabled: false
+
+server:
+  error:
+    include-stacktrace: never

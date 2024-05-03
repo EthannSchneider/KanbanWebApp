@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "KanbanWebApplication",
+            "request": "launch",
+            "mainClass": "ch.ethann.tpi.KanbanWebApplication",
+            "projectName": ""
+        },
+        {
+            "type": "node-terminal",
+            "name": "Launch Angular App",
+            "request": "launch",
+            "command": "ng serve --proxy-config proxy.conf.json",
+            "cwd": "${workspaceFolder}/src/main/angular"
+        }
+    ]
+}
