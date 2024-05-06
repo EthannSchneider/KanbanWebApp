@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="kanbans">
+    <div class="kanban" *ngFor="let board of boards" [style]="generateColor(board.boxColors)">
+        <h2>{{board.name}}</h2>
+        <hr>
+        <p>{{board.description}}</p>
+    </div>
+</div>

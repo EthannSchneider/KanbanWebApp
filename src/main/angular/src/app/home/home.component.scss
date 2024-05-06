@@ -1,0 +1,23 @@
+.kanbans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    .kanban {
+        border-radius: 25px;
+        margin: 40px;
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        h2 {
+            margin-top: 20px;
+            color: #4C84B8;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, #4C84B8, #4C84B8);
+        }
+    }
+}
