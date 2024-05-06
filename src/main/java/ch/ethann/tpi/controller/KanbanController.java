@@ -41,6 +41,11 @@ public class KanbanController {
         return kanbanListToKanbanProjectionList(kanbanService.getKanbans());
     }
 
+    @GetMapping("/{name}")
+    public KanbanProjection getKanban(@PathVariable String name) throws KanbanException {
+        return projectionFactory.createProjection(KanbanProjection.class, kanbanService.getKanban(name));
+    }
+
     @PostMapping
     public ResponseEntity<KanbanProjection> createKanban(@RequestBody @Valid CreateKanbanDTO createKanbanDTO) throws KanbanException {
         Kanban kanban = new Kanban();
