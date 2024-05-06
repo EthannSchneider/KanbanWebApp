@@ -21,4 +21,7 @@ public class Kanban {
 
     @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false, length = 6)
+    private String boxColors;
 }

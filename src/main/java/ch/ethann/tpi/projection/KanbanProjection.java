@@ -4,4 +4,6 @@ public interface KanbanProjection {
     String getName();
 
     String getDescription();
+
+    String getBoxColors();
 }

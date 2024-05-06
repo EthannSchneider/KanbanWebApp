@@ -46,6 +46,7 @@ public class KanbanController {
         Kanban kanban = new Kanban();
         kanban.setName(createKanbanDTO.getName());
         kanban.setDescription(createKanbanDTO.getDescription());
+        kanban.setBoxColors(createKanbanDTO.getBoxColors());
         return ResponseEntity.status(HttpStatus.CREATED).body(projectionFactory.createProjection(KanbanProjection.class, kanbanService.createKanban(kanban)));
     }
 
@@ -65,6 +66,10 @@ public class KanbanController {
 
         if (updateKanbanDTO.getDescription() != "") {
             kanban.setDescription(updateKanbanDTO.getDescription()); 
+        }
+
+        if (updateKanbanDTO.getBoxColors() != "") {
+            kanban.setBoxColors(updateKanbanDTO.getBoxColors());
         }
 
         return ResponseEntity.ok(projectionFactory.createProjection(KanbanProjection.class, kanbanService.updateKanban(kanban)));
