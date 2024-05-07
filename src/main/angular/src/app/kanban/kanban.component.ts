@@ -19,6 +19,11 @@ export class KanbanComponent implements OnInit {
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name') || ''
 
+    AppComponent.rightButtonText = "⬅️"
+    AppComponent.rightButtonRedirect = '/'
+    AppComponent.leftButtonText = "⚙️"
+    AppComponent.leftButtonRedirect = `/kanban/${this.name}/settings`
+
     this.kanbanService.getBoard(this.name).subscribe({
       next: kanban => {
         AppComponent.title = this.name

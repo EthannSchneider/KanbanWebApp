@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(): void {
     AppComponent.title = 'Kanban Boards';
+    AppComponent.rightButtonText = '';
+    AppComponent.rightButtonRedirect = '';
+    AppComponent.leftButtonText = '';
+    AppComponent.leftButtonRedirect = '';
 
     this.kanbanService.getBoards().subscribe((boards: any) => {
       this.boards = boards;
