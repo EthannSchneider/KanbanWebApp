@@ -1,0 +1,40 @@
+<div class="settings">
+    <div class="buttons">
+        <button (click)="delete()">Delete</button>
+    </div>
+    <div class="settingBoxs">
+        <div class="settingBox description">
+            <div class="title">
+                <h2>Description</h2>
+            </div>
+            <div class="text">
+                <textarea (change)="changeEvent($event)" name="description">{{description}}</textarea>
+            </div>
+        </div>
+        <div class="settingBox details">
+            <div class="title">
+                <h2>Details</h2>
+            </div>
+            <div class="text">
+                <table>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Name</h3>
+                        </td>
+                        <td class="properties-value">
+                            <input type="text" (change)="changeEvent($event)" name="name" value="{{name}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Colors</h3>
+                        </td>
+                        <td class="properties-value">
+                            <input type="color" (change)="changeEvent($event)" name="color" value="#{{color}}">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

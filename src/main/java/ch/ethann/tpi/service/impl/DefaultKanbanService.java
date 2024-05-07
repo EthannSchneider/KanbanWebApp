@@ -42,6 +42,9 @@ public class DefaultKanbanService implements KanbanService {
     @Override
     public Kanban renameKanban(String name, String newName) throws KanbanException {
         throwExceptionIfKanbanExists(name, null, new KanbanNotFoundException());
+        if (!name.equals(newName)) {
+            throwExceptionIfKanbanExists(newName, new KanbanAlreadyExistException(), null);
+        }
         Kanban kanban = kanbanRepository.findByName(name).get();
         kanban.setName(newName);
         return kanbanRepository.save(kanban);
