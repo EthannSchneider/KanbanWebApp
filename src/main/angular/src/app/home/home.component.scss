@@ -21,3 +21,16 @@
         }
     }
 }
+.buttons {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    button {
+        color: #4C84B8;
+        background-color: #D9D9D9;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 15px;
+        border: none;
+    }
+}

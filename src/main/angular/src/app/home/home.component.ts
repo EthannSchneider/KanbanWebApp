@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { KanbanService } from '../@core/service/kanban.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateABoardComponent } from '../@core/component/create-a-board/create-a-board.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private kanbanService: KanbanService,
+    private dialog: MatDialog
   ) { }
   
   ngOnInit(): void {
@@ -24,5 +27,14 @@ export class HomeComponent implements OnInit {
 
   generateColor(color: string): string {
     return "background-color: #" + color + ";"
+  }
+
+  popupCreateBoard(): void {
+    this.dialog.open(CreateABoardComponent);
+    this.dialog.afterAllClosed.subscribe(() => {
+      this.kanbanService.getBoards().subscribe((boards: any) => {
+        this.boards = boards;
+      });
+    });
   }
 }

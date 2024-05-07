@@ -1,3 +1,7 @@
+<div class="buttons">
+    <button (click)="popupCreateBoard()">Create a board</button>
+</div>
+
 <div class="kanbans">
     <div class="kanban" *ngFor="let board of boards" [style]="generateColor(board.boxColors)">
         <h2>{{board.name}}</h2>
