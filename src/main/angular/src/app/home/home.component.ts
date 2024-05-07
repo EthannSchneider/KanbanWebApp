@@ -37,4 +37,8 @@ export class HomeComponent implements OnInit {
       });
     });
   }
+
+  redirect(name: string): void {
+    window.location.href = '/kanban/' + name;
+  }
 }
