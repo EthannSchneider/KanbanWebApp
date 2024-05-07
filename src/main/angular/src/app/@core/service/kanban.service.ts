@@ -26,7 +26,7 @@ export class KanbanService {
     return this.http.delete(`/api/kanban/${name}`);
   }
 
-  updateBoard(name: string, description: string, boxColors: string) {
-    return this.http.patch(`/api/kanban/${name}`, { name, description, boxColors });
+  updateBoard(oldName: string, name: string, description: string, boxColors: string) {
+    return this.http.patch(`/api/kanban/${oldName}`, { name, description, boxColors });
   }
 }
