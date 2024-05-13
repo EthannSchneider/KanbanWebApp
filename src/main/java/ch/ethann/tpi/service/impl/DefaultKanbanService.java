@@ -7,14 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import ch.ethann.tpi.excpetion.Kanban.KanbanAlreadyExistException;
 import ch.ethann.tpi.excpetion.Kanban.KanbanException;
 import ch.ethann.tpi.excpetion.Kanban.KanbanNotFoundException;
+import ch.ethann.tpi.excpetion.Task.TaskException;
 import ch.ethann.tpi.model.Kanban;
 import ch.ethann.tpi.repository.KanbanRepository;
 import ch.ethann.tpi.service.KanbanService;
+import ch.ethann.tpi.service.TaskService;
 
 public class DefaultKanbanService implements KanbanService {
 
     @Autowired
     private KanbanRepository kanbanRepository;
+
+    @Autowired 
+    private TaskService taskService;
 
     @Override
     public List<Kanban> getKanbans() {
@@ -52,8 +57,15 @@ public class DefaultKanbanService implements KanbanService {
 
     @Override
     public void deleteKanban(String name) throws KanbanException {
-        throwExceptionIfKanbanExists(name, null, new KanbanNotFoundException());
-        kanbanRepository.delete(kanbanRepository.findByName(name).get());
+        Kanban kanban = getKanban(name);
+        taskService.getTasks(kanban).forEach(task -> {
+            try {
+                taskService.deleteTask(kanban, task.getName());
+            } catch (TaskException e) {
+                e.printStackTrace();
+            }
+        });
+        kanbanRepository.delete(kanban);
     }
 
     private void throwExceptionIfKanbanExists(String name, KanbanException exist, KanbanException notExist) throws KanbanException {
