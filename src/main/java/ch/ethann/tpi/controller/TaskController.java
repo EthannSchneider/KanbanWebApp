@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.projection.ProjectionFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -54,7 +56,7 @@ public class TaskController {
     }
 
     @PostMapping
-    public TaskProjection createTask(@PathVariable String kanbanName, @RequestBody @Valid CreateTaskDTO taskDTO) throws KanbanException, TaskException {
+    public ResponseEntity<TaskProjection> createTask(@PathVariable String kanbanName, @RequestBody @Valid CreateTaskDTO taskDTO) throws KanbanException, TaskException {
         Task task = new Task();
 
         task.setName(taskDTO.getName());
@@ -64,7 +66,7 @@ public class TaskController {
         task.setStatus(Status.valueOf(taskDTO.getStatus()));
         task.setKanban(kanbanService.getKanban(kanbanName));
 
-        return projectionFactory.createProjection(TaskProjection.class, taskService.createTask(task));
+        return ResponseEntity.status(HttpStatus.CREATED).body(projectionFactory.createProjection(TaskProjection.class, taskService.createTask(task)));
     }
 
     @PatchMapping("{taskName}")
@@ -85,8 +87,9 @@ public class TaskController {
     }
 
     @DeleteMapping("{taskName}")
-    public void deleteTask(@PathVariable String kanbanName, @PathVariable String taskName) throws KanbanException, TaskException {
+    public ResponseEntity<Void> deleteTask(@PathVariable String kanbanName, @PathVariable String taskName) throws KanbanException, TaskException {
         taskService.deleteTask(kanbanService.getKanban(kanbanName), taskName);
+        return ResponseEntity.noContent().build();
     }
 
     private List<TaskProjection> taskListToTaskProjectionList(List<Task> kanbans) {
