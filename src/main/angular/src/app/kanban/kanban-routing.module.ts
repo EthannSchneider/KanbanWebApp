@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { KanbanComponent } from './kanban.component';
 import { SettingsComponent } from './settings/settings.component';
+import { BoardComponent } from './board/board.component';
+import { BacklogComponent } from './backlog/backlog.component';
 
 const routes: Routes = [
-  { path: ':name', component: KanbanComponent },
+  { path: ':name', redirectTo: ':name/board', pathMatch: 'full' },
+  { path: ':name/board', component: BoardComponent },
+  { path: ':name/backlog', component: BacklogComponent },
   { path: ':name/settings', component: SettingsComponent },
   { path: '**', redirectTo: '/' }
 ];
