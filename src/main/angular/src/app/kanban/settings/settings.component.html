@@ -8,7 +8,7 @@
                 <h2>Description</h2>
             </div>
             <div class="text">
-                <textarea (change)="changeEvent($event)" name="description">{{description}}</textarea>
+                <textarea (change)="changeEvent($event)" maxlength="1024" name="description">{{description}}</textarea>
             </div>
         </div>
         <div class="settingBox details">
@@ -22,7 +22,7 @@
                             <h3>Name</h3>
                         </td>
                         <td class="properties-value">
-                            <input type="text" (change)="changeEvent($event)" name="name" value="{{name}}">
+                            <input type="text" maxlength="255" (change)="changeEvent($event)" name="name" value="{{name}}">
                         </td>
                     </tr>
                     <tr>
