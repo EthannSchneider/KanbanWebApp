@@ -180,6 +180,6 @@ public class KanbanControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/kanban")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\": \"" + name + "\", \"description\": \"" + description + "\", \"boxColors\": \"" + boxColors + "\"}"))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+                .andExpect(MockMvcResultMatchers.status().isConflict());
     }
 }
