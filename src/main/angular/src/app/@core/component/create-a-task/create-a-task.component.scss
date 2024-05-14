@@ -1,0 +1,58 @@
+.popup {
+    position: fixed;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #a5a5a5;
+    p {
+        text-align: center;
+        color: #4C84B8;
+    }
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            width: 99%;
+        }
+        a {
+            width: 1%;
+        }
+    }
+    button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #C8C8C8;
+        color: #4C84B8;
+        cursor: pointer;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .error {
+            color: red;
+        }
+        table {
+            align-self: flex-start;
+            width: 100%;
+            #boardDescription {
+                height: 100px;
+            }
+            label {
+                color: #4C84B8;
+            }
+            input, textarea {
+                width: 70%;
+                border-radius: 10px;
+                padding: 5px;
+                border: none;
+                background-color: #C8C8C8;
+            }
+        }
+    }
+}

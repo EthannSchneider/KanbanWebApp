@@ -4,6 +4,8 @@ import { KanbanService } from '../../@core/service/kanban.service';
 import { AppComponent } from '../../app.component';
 import { TaskService } from '../../@core/service/task.service';
 import { StringUtilsService } from '../../@core/utils/string-utils.service';
+import { CreateATaskComponent } from '../../@core/component/create-a-task/create-a-task.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-backlog',
@@ -19,7 +21,8 @@ export class BacklogComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private kanbanService: KanbanService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -67,5 +70,11 @@ export class BacklogComponent implements OnInit{
 
   reduceString(string: string, length: number): string {
     return StringUtilsService.reduceString(string, length);
+  }
+
+  popupCreateTask(): void {
+    this.dialog.open(CreateATaskComponent, { data: { kanbanName: this.name } }).afterClosed().subscribe(() => {
+      this.updateTasks();
+    });
   }
 }

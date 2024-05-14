@@ -72,6 +72,17 @@ export class TaskDetailsComponent implements OnInit {
     this.update()
   }
 
+  delete(): void {
+    this.taskService.deleteTask(this.kanbanName, this.taskName).subscribe({
+      next: (response) => {
+        window.location.href = '/kanban/' + this.kanbanName + '/board'
+      },
+      error: error => {
+        window.location.href = '/'
+      }
+    });
+  }
+
   update(): void {
     this.taskService.updateTask(this.kanbanName, this.taskRoutedName, this.taskName, this.taskAssignee, this.taskDescription, this.taskTimeToRelease, this.taskStatus).subscribe({
       next: (response) => {
