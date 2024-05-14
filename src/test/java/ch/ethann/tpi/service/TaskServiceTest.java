@@ -197,8 +197,18 @@ public class TaskServiceTest {
     }
     @Test 
     void testRenameTaskThatAlreadyExist() throws Exception {
+        Task task = new Task();
+        task.setName(TASK_NAME + "2");
+        task.setAssignee(TASK_ASSIGNEE);
+        task.setDescription(TASK_DESCRIPTION);
+        task.setTimeToRelease(TASK_TIME_TO_RELEASE);
+        task.setStatus(TASK_STATUS);
+        task.setKanban(getKanban());
+
+        taskRepository.save(task);
+        
         assertThrows(TaskAlreadyExistException.class, () -> {
-            taskService.renameTask(getKanban(), TASK_NAME, TASK_NAME);
+            taskService.renameTask(getKanban(), TASK_NAME, TASK_NAME + "2");
         });
     }
 
