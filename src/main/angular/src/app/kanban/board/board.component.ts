@@ -3,6 +3,7 @@ import { AppComponent } from '../../app.component';
 import { KanbanService } from '../../@core/service/kanban.service';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../../@core/service/task.service';
+import { StringUtilsService } from '../../@core/utils/string-utils.service';
 
 @Component({
   selector: 'app-board',
@@ -39,7 +40,7 @@ export class BoardComponent implements OnInit{
 
     this.kanbanService.getBoard(this.name).subscribe({
       next: kanban => {
-        AppComponent.title = this.name
+        AppComponent.title = StringUtilsService.reduceString(this.name, 20)
         this.updateTasks()
       },
       error: error => {
@@ -101,5 +102,9 @@ export class BoardComponent implements OnInit{
 
   gotoTasksDetails(taskName: string) {
     window.location.href = `/kanban/${this.name}/task/${taskName}`
+  }
+
+  reduceString(string: string, length: number): string {
+    return StringUtilsService.reduceString(string, length);
   }
 }

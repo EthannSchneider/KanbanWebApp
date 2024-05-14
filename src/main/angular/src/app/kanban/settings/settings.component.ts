@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { ActivatedRoute } from '@angular/router';
 import { KanbanService } from '../../@core/service/kanban.service';
+import { StringUtilsService } from '../../@core/utils/string-utils.service';
 
 @Component({
   selector: 'app-settings',
@@ -25,7 +26,7 @@ export class SettingsComponent implements OnInit {
 
     this.kanbanService.getBoard(this.name).subscribe({
       next: kanban => {
-        AppComponent.title = this.name + ' - Settings'
+        AppComponent.title = StringUtilsService.reduceString(this.name, 20) + ' - Settings'
         AppComponent.rightButtonText = "⬅️"
         AppComponent.rightButtonRedirect = '/kanban/' + this.name
         AppComponent.leftButtonText = ''

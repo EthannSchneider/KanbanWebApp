@@ -3,6 +3,7 @@ import { AppComponent } from '../app.component';
 import { KanbanService } from '../@core/service/kanban.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateABoardComponent } from '../@core/component/create-a-board/create-a-board.component';
+import { StringUtilsService } from '../@core/utils/string-utils.service';
 
 @Component({
   selector: 'app-home',
@@ -44,5 +45,9 @@ export class HomeComponent implements OnInit {
 
   redirect(name: string): void {
     window.location.href = '/kanban/' + name;
+  }
+
+  reduceString(string: string, length: number): string {
+    return StringUtilsService.reduceString(string, length);
   }
 }

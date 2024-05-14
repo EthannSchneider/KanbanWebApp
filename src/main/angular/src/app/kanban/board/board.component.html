@@ -6,9 +6,9 @@
             <h1>To Do</h1>
         </div>
         <div class="tasks" id="TODO-tasks" (dragover)="onDragOver($event)">
-            <div *ngFor="let task of todoTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(task.name)">
-                <h2 class="task-title">{{task.name}}</h2>
-                <p class="task-description">{{task.description}}</p>
+            <div *ngFor="let task of todoTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(reduceString(task.name, 20))">
+                <h2 class="task-title">{{reduceString(task.name, 20)}}</h2>
+                <p class="task-description">{{reduceString(task.description, 30)}}</p>
             </div>
         </div>
     </div>
@@ -17,9 +17,9 @@
             <h1>In Progress</h1>
         </div>
         <div class="tasks" id="IN_PROGRESS-tasks" (dragover)="onDragOver($event)">
-            <div *ngFor="let task of inProgressTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(task.name)">
-                <h2 class="task-title">{{task.name}}</h2>
-                <p class="task-description">{{task.description}}</p>
+            <div *ngFor="let task of inProgressTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(reduceString(task.name, 20))">
+                <h2 class="task-title">{{reduceString(task.name, 20)}}</h2>
+                <p class="task-description">{{reduceString(task.description, 30)}}</p>
             </div>
         </div>
     </div>
@@ -28,9 +28,9 @@
             <h1>To Test</h1>
         </div>
         <div class="tasks" id="TO_TEST-tasks" (dragover)="onDragOver($event)">
-            <div *ngFor="let task of toTestTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(task.name)">
-                <h2 class="task-title">{{task.name}}</h2>
-                <p class="task-description">{{task.description}}</p>
+            <div *ngFor="let task of toTestTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(reduceString(task.name, 20))">
+                <h2 class="task-title">{{reduceString(task.name, 20)}}</h2>
+                <p class="task-description">{{reduceString(task.description, 30)}}</p>
             </div>
         </div>
     </div>
@@ -39,9 +39,9 @@
             <h1>Done</h1>
         </div>
         <div class="tasks" id="DONE-tasks" (dragover)="onDragOver($event)">
-            <div *ngFor="let task of doneTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(task.name)">
-                <h2 class="task-title">{{task.name}}</h2>
-                <p class="task-description">{{task.description}}</p>
+            <div *ngFor="let task of doneTasks" class="task" draggable="true" (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" (click)="gotoTasksDetails(reduceString(task.name, 20))">
+                <h2 class="task-title">{{reduceString(task.name, 20)}}</h2>
+                <p class="task-description">{{reduceString(task.description, 30)}}</p>
             </div>
         </div>
     </div>

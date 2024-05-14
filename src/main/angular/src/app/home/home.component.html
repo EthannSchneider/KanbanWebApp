@@ -4,8 +4,8 @@
 
 <div class="kanbans">
     <div class="kanban" *ngFor="let board of boards" (click)="redirect(board.name)" [style]="generateColor(board.boxColors)">
-        <h2>{{board.name}}</h2>
+        <h2>{{reduceString(board.name, 20)}}</h2>
         <hr>
-        <p>{{board.description}}</p>
+        <p>{{reduceString(board.description, 30)}}</p>
     </div>
 </div>

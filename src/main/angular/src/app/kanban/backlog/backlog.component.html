@@ -15,10 +15,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let task of backlogTasks" (click)="gotoTasksDetails(task.name)">
-                <td>{{task.name}}</td>
-                <td>{{task.assignee}}</td>
+                <td>{{reduceString(task.name, 20)}}</td>
+                <td>{{reduceString(task.assignee, 20)}}</td>
                 <td>{{task.timeToRelease}}</td>
-                <td>{{task.description}}</td>
+                <td>{{reduceString(task.description, 30)}}</td>
             </tr>
         </tbody>
 

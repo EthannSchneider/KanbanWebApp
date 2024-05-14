@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../../app.component';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../../@core/service/task.service';
+import { StringUtilsService } from '../../@core/utils/string-utils.service';
 
 @Component({
   selector: 'app-task-details',
@@ -27,7 +28,7 @@ export class TaskDetailsComponent implements OnInit {
     this.taskRoutedName = this.routes.snapshot.paramMap.get('taskName') || ''
     this.taskName = this.taskRoutedName
 
-    AppComponent.title = this.taskName + ' - Details'
+    AppComponent.title = StringUtilsService.reduceString(this.taskName, 20) + ' - Details'
     AppComponent.rightButtonText = "⬅️"
     AppComponent.rightButtonRedirect = '/kanban/' + this.kanbanName + '/board'
     AppComponent.leftButtonText = ''
