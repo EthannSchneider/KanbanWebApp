@@ -5,6 +5,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { BoardComponent } from './board/board.component';
 import { BoardBacklogModule } from '../@core/component/board-backlog/board-backlog.module';
+import { TaskDetailsComponent } from './task-details/task-details.component';
 
 
 
@@ -12,7 +13,8 @@ import { BoardBacklogModule } from '../@core/component/board-backlog/board-backl
   declarations: [
     SettingsComponent,
     BacklogComponent,
-    BoardComponent
+    BoardComponent,
+    TaskDetailsComponent
   ],
   imports: [
     CommonModule,

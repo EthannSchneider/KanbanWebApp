@@ -98,4 +98,8 @@ export class BoardComponent implements OnInit{
     event.preventDefault();
     this.lastDraggedOver = event.target;
   }
+
+  gotoTasksDetails(taskName: string) {
+    window.location.href = `/kanban/${this.name}/task/${taskName}`
+  }
 }
