@@ -19,7 +19,7 @@ public class Kanban {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length=1024)
     private String description;
 
     @Column(nullable = false, length = 6)

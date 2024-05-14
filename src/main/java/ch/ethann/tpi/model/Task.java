@@ -29,7 +29,7 @@ public class Task {
     @Column(nullable = false)
     private String assignee;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length=1024)
     private String description = "";
 
     @Column(nullable = false)
