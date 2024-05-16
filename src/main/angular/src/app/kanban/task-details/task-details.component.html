@@ -1,0 +1,62 @@
+<div class="settings">
+    <div class="buttons">
+        <button id="delete-button" (click)="delete()">Delete</button>
+    </div>
+    <div class="settingBoxs">
+        <div class="settingBox description">
+            <div class="title">
+                <h2>Description</h2>
+            </div>
+            <div class="text">
+                <textarea name="description" maxlength="1024" (change)="changeEvent($event)">{{taskDescription}}</textarea>
+            </div>
+        </div>
+        <div class="settingBox details">
+            <div class="title">
+                <h2>Details</h2>
+            </div>
+            <div class="text">
+                <table>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Name</h3>
+                        </td>
+                        <td class="properties-value">
+                            <input (change)="changeEvent($event)" maxlength="255" type="text" name="name" [value]="taskName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Assignee</h3>
+                        </td>
+                        <td class="properties-value">
+                            <input (change)="changeEvent($event)" maxlength="255" type="text" name="assignee" [value]="taskAssignee">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Time Estimated</h3>
+                        </td>
+                        <td class="properties-value">
+                            <input (change)="changeEvent($event)" type="time" name="timeToRelease" step="1" [value]="taskTimeToRelease">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="properties-name">
+                            <h3>Status</h3>
+                        </td>
+                        <td class="properties-value">
+                            <select (change)="changeEvent($event)" name="status" [value]="taskStatus">
+                                <option value="BACKLOG">Backlog</option>
+                                <option value="TODO">To Do</option>
+                                <option value="IN_PROGRESS">In Progress</option>
+                                <option value="TO_TEST">To Test</option>
+                                <option value="DONE">Done</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

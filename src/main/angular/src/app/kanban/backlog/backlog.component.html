@@ -1,0 +1,28 @@
+<app-board-backlog currentPage="Backlog" [boardRedirect]="boardRedirect" [backlogRedirect]="backlogRedirect"></app-board-backlog>
+
+<div class="backlog-box">
+    <div class="box-title">
+        <h2></h2>
+        <h2>Backlog</h2>
+        <button id="create-task" (click)="popupCreateTask()">Create task</button>
+    </div>
+    <table class="backlog-tasks">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Assignee</th>
+                <th>Time estimated</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of backlogTasks" (click)="gotoTasksDetails(task.name)">
+                <td>{{reduceString(task.name, 20)}}</td>
+                <td>{{reduceString(task.assignee, 20)}}</td>
+                <td>{{task.timeToRelease}}</td>
+                <td>{{reduceString(task.description, 30)}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

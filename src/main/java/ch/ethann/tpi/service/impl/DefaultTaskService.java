@@ -47,9 +47,10 @@ public class DefaultTaskService implements TaskService {
 
     @Override
     public Task renameTask(Kanban kanban, String oldName, String newName) throws TaskException {
-        throwExceptionIfTaskExists(kanban, newName, new TaskAlreadyExistException(), null);
         throwExceptionIfTaskExists(kanban, oldName, null, new TaskNotFoundException());
-
+        if (!oldName.equals(newName)) {
+            throwExceptionIfTaskExists(kanban, newName, new TaskAlreadyExistException(), null);
+        }
         Task task = taskRepository.findByKanbanAndName(kanban, oldName).get();
         task.setName(newName);
         return taskRepository.save(task);

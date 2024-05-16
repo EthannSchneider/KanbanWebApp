@@ -39,7 +39,7 @@ export class CreateABoardComponent {
         this.dialogRef.close();
       },
       error: err => {
-        if(err.status === 400) {
+        if(err.status === 409) {
           this.error = "Board name already exists. Please try another name."
         }else {
           this.error = "Failed to create board. Please try again."

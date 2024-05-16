@@ -10,7 +10,7 @@
                     <label for="boardName">Name</label>
                 </td>
                 <td>
-                    <input type="text" (change)="updateBoardName($event)" id="boardName" name="boardName" required>
+                    <input type="text" maxlength="255" (change)="updateBoardName($event)" id="boardName" name="boardName" required>
                 </td>
             </tr>
             <tr>
@@ -18,7 +18,7 @@
                     <label for="boardDescription">Description</label>
                 </td>
                 <td>
-                    <textarea type="text" (change)="updateBoardDescription($event)" id="boardDescription" name="boardDescription" required></textarea>
+                    <textarea type="text" maxlength="1024" (change)="updateBoardDescription($event)" id="boardDescription" name="boardDescription" required></textarea>
                 </td>
             </tr>
             <tr>

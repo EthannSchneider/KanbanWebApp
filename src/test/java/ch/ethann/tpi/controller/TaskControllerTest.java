@@ -132,7 +132,7 @@ public class TaskControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/api/kanban/{name}/task", name)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\": \"Task1\", \"assignee\": \"Assignee2\", \"description\": \"Description2\", \"timeToRelease\": \"00:00:00\", \"status\": \"TODO\"}"))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest());
+                .andExpect(MockMvcResultMatchers.status().isConflict());
     }
 
     @Test 

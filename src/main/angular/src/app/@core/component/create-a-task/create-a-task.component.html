@@ -1,0 +1,44 @@
+<div class="popup">
+    <div class="title">
+        <p>Create a Task</p>
+        <a (click)="close()">❌</a>
+    </div>
+    <div class="form">
+        <table>
+            <tr>
+                <td>
+                    <label for="taskName">Name</label>
+                </td>
+                <td>
+                    <input type="text" maxlength="255" (change)="updateTaskName($event)" id="taskName" name="taskName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskDescription">Description</label>
+                </td>
+                <td>
+                    <textarea type="text" maxlength="1024" (change)="updateTaskDescription($event)" id="taskDescription" name="taskDescription" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskAssignee">Assignee</label>
+                </td>
+                <td>
+                    <input type="text" maxlength="255" (change)="updateTaskAssignee($event)" id="taskAssignee" name="taskAssignee" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="taskTimeToRelease">Time To Release</label>
+                </td>
+                <td>
+                    <input type="time" step="1" (change)="updateTaskTimeToRelease($event)" id="taskTimeToRelease" name="taskTimeToRelease" required>
+                </td>
+            </tr>
+        </table>
+        <div class="error">{{error}}</div>
+        <button (click)="submit()">Create</button>
+    </div>
+</div>
