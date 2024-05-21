@@ -64,6 +64,9 @@ export class TaskDetailsComponent implements OnInit {
         break
       case 'timeToRelease':
         this.taskTimeToRelease = event.target.value
+        if (!new RegExp('^(?:([01]?\\d|2[0-3]):([0-5]?\\d):)?([0-5]?\\d)$').test(this.taskTimeToRelease)) {
+          this.taskTimeToRelease = ''
+        }
         break
       default:
         window.location.reload()

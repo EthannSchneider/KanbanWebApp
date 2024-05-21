@@ -8,6 +8,7 @@ import { TaskService } from '../../service/task.service';
   styleUrl: './create-a-task.component.scss'
 })
 export class CreateATaskComponent implements OnInit {
+  canSubmit: boolean = false;
   kanbanName: string = '';
   taskName: string = '';
   taskDescription: string = '';
@@ -43,6 +44,10 @@ export class CreateATaskComponent implements OnInit {
 
   submit() {
     if (this.taskName === '') {
+      return;
+    }
+    if (!new RegExp('^(?:([01]?\\d|2[0-3]):([0-5]?\\d):)?([0-5]?\\d)$').test(this.taskTimeToRelease)) {
+      this.error = "Invalid time format. Please fill all HH:MM:SS format."
       return;
     }
     this.taskService.createTask(this.kanbanName ,this.taskName, this.taskAssignee, this.taskDescription, this.taskTimeToRelease, "BACKLOG").subscribe({
