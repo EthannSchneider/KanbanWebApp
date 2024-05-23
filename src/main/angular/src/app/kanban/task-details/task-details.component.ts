@@ -55,6 +55,9 @@ export class TaskDetailsComponent implements OnInit {
         break
       case 'description':
         this.taskDescription = event.target.value
+        if (this.taskDescription.length === 0) {
+          this.taskDescription = " "
+        }
         break
       case 'assignee':
         this.taskAssignee = event.target.value

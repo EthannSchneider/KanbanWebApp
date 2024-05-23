@@ -53,6 +53,9 @@ export class SettingsComponent implements OnInit {
         break
       case 'description':
         this.description = event.target.value
+        if (this.description.length === 0) {
+          this.description = " "
+        }
         break
       case 'color':
         this.color = event.target.value.replace("#", "")
