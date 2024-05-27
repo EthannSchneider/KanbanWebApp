@@ -1,1 +1,7 @@
-<p>Hello there</p>
+<div class="Title">
+    <button *ngIf="rightButtonText" [routerLink]="rightButtonRedirect">{{rightButtonText}}</button>
+    <h1>{{title}}</h1>
+    <button *ngIf="rightButtonText" [routerLink]="leftButtonRedirect">{{leftButtonText}}</button>
+</div>
+
+<router-outlet></router-outlet>

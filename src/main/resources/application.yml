@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.apache.derby.jdbc.EmbeddedDriver
-    url: "jdbc:derby:${user.home}/.kanbanWebAppDB;create=true"
+    url: "jdbc:derby:${user.home}/.kanbanWebAppDB/app;create=true"
     hikari:
       auto-commit: false
   jpa:
@@ -13,3 +13,9 @@ spring:
 server:
   error:
     include-stacktrace: never
+
+springdoc:
+  api-docs:
+    path: /api/docs
+  swagger-ui:
+    path: /api/docs/ui

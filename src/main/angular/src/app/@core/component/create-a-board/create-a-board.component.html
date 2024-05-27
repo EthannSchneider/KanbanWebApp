@@ -1,0 +1,36 @@
+<div class="popup">
+    <div class="title">
+        <p>Create a Board</p>
+        <a (click)="close()">❌</a>
+    </div>
+    <div class="form">
+        <table>
+            <tr>
+                <td>
+                    <label for="boardName">Name</label>
+                </td>
+                <td>
+                    <input type="text" maxlength="255" (change)="updateBoardName($event)" id="boardName" name="boardName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="boardDescription">Description</label>
+                </td>
+                <td>
+                    <textarea type="text" maxlength="1024" (change)="updateBoardDescription($event)" id="boardDescription" name="boardDescription" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="boardColor">Color</label>
+                </td>
+                <td>
+                    <input type="color" (change)="updateBoardColor($event)" id="boardColor" name="boardColor" required>
+                </td>
+            </tr>
+        </table>
+        <div class="error">{{error}}</div>
+        <button (click)="submit()">Create</button>
+    </div>
+</div>

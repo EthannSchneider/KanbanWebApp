@@ -1,0 +1,29 @@
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #FF5858;
+    border-radius: 20px;
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        font-size: 30px;
+        padding: 20px 0px;
+        width: 50%;
+        height: 100%;
+        color: white;
+        text-decoration: none;
+    }
+    .item:hover {
+        background-color: #afafaf;
+        
+    }
+    .selected-item {
+        background-color: #D9D9D9;
+        color: #8C8C8C;
+    }
+}
+.space {
+    margin: 20px 30px;
+}

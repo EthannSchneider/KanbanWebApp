@@ -1,4 +1,4 @@
-package ch.ethann.tpi;
+package ch.ethann.tpi.configuration;
 
 import java.io.IOException;
 
